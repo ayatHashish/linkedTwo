@@ -7,11 +7,22 @@ import { CommonModule } from '@angular/common';
 import { AgmCoreModule } from '@agm/core';
 import { NgModule } from '@angular/core';
 import { OnboardingComponent } from './onboarding/onboarding.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { RecommendedComponent } from './recommended/recommended.component';
+import { RecentComponent } from './recent/recent.component';
+import { JopComponent } from './jop/jop.component';
+
+
 
 @NgModule({
   declarations: [
     PagesComponent,
-    OnboardingComponent
+    OnboardingComponent,
+    HomePageComponent,
+    RecommendedComponent,
+    RecentComponent,
+    JopComponent,
+
   ],
   imports: [
     ReactiveFormsModule,
@@ -25,7 +36,8 @@ import { OnboardingComponent } from './onboarding/onboarding.component';
 
   ,exports :[
     PagesComponent,
-    OnboardingComponent
+    OnboardingComponent,
+
   ]
 })
 export class PagesModule { }
