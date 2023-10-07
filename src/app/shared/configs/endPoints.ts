@@ -1,7 +1,7 @@
 export const roots = {
   auth: {
-    login: '/candidates/sign_in',
-    signup: '/candidates/signup',
+    login: 'auth/login',
+    signup: 'auth/register',
     uploadcv: 'candidates/uploadcv',
     countries: 'countries',
     getUserData: '/get-user-data',

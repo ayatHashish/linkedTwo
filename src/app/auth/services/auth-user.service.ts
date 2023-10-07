@@ -16,20 +16,20 @@ export class AuthUserService {
   constructor(private http: HttpClient, private router: Router) { }
 
   login(data: any): Observable<any> {
-    return this.http?.post<any>(this.apiUrl + roots?.auth?.login + '/' + this.langkey, data);
+    return this.http?.post<any>(this.apiUrl + roots?.auth?.login , data);
   }
 
   signup(data: any): Observable<any> {
-    return this.http?.post<any>(this.apiUrl + roots?.auth?.signup + '/' + this.langkey, data);
+    return this.http?.post<any>(this.apiUrl + roots?.auth?.signup , data);
   }
 
   uploadcv(files:any): Observable<any> {
     return this.http?.post<any>(this.apiUrl + roots?.auth?.uploadcv, files);
   }
 
-  countries(): Observable<any> {
-    return this.http?.get<any>(this.apiUrl + roots?.auth?.countries +'/' + this.langkey);
-  }
+  // countries(): Observable<any> {
+  //   return this.http?.get<any>(this.apiUrl + roots?.auth?.countries +'/' + this.langkey);
+  // }
 
 
 

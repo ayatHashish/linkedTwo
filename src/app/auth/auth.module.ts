@@ -19,7 +19,7 @@ import { SharedModule } from '../shared/shared.module';
   ],
 
   exports: [
-    // AuthComponent,
+    AuthComponent,
     LoginComponent,
     RegisterComponent,
   ],

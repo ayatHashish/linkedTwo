@@ -16,3 +16,33 @@
     color: var(--text-white-color);
   }
 }
+
+.notification {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+
+.notification-icon {
+  margin-right: 10px;
+  img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+}
+.notification-content {
+  flex: 1;
+
+  .notification-text {
+  font-weight: bold;
+  margin: 0;
+}
+.notification-time {
+  color: #777;
+  margin: 0;
+}
+
+}
+}

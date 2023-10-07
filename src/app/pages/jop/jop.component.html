@@ -1,26 +1,73 @@
+<app-jop-search></app-jop-search>
+<app-jop-selected></app-jop-selected>
 <div class="jop-page p-t-12">
   <div class="container">
     <div class="row">
       <div class="col-xl-3">
-        <app-recommended></app-recommended>
+        <div class="blue">
+          <div class="prod">
+            <p-scrollPanel [style]="{ width: '100%', height: '80vh' }" styleClass="custombar1">
+           <app-recommended></app-recommended>
+            </p-scrollPanel>
+         </div>
+ </div>
       </div>
       <div class="col-xl-6">
         <!-- Recommended for you -->
-        <div class="recommended-you">
-          <h6>Recommended for you</h6>
+        <p-scrollPanel [style]="{ width:'100%', height: '80vh' }" styleClass="custombar1">
+          <div class="recommended-you">
 
-        </div>
+            <h2 class="name">Product Designer</h2>
+            <p> <span>Cairo,Egypt</span> . 5 hours ago . Over 200 applicants </p>
+            <p> <span>Full - Time Mid-Senior level</span></p>
+            <p> <span>Skills: User Interface Design , User Experience (ux) </span> </p>
+
+
+            <button class="apply" role="button">Apply</button>
+
+
+            <h2>Job Description:</h2>
+            <p>We are seeking a talented HTML/CSS Front-End Developer to join our team. In this role, you will play a
+              key part in crafting visually stunning and user-friendly web interfaces. If you have a passion for turning
+              design concepts into reality and ensuring seamless user experiences, we'd love to hear from you.</p>
+
+            <h3>Responsibilities:</h3>
+            <ul class="requirements-list">
+              <li>Develop responsive and aesthetically pleasing web pages using HTML and CSS.</li>
+              <li>Collaborate closely with design teams to implement UI/UX elements.</li>
+              <li>Optimize web pages for performance and cross-browser compatibility.</li>
+              <li>Maintain and update existing web content as needed.</li>
+              <li>Implement consistent design patterns and styles across the platform.</li>
+              <li>Stay up-to-date with industry trends and best practices in front-end development.</li>
+              <li>Troubleshoot and resolve front-end issues as they arise.</li>
+            </ul>
+            <h3>Responsibilities:</h3>
+            <ul class="requirements-list">
+              <li>Develop responsive and aesthetically pleasing web pages using HTML and CSS.</li>
+              <li>Collaborate closely with design teams to implement UI/UX elements.</li>
+              <li>Optimize web pages for performance and cross-browser compatibility.</li>
+              <li>Maintain and update existing web content as needed.</li>
+              <li>Implement consistent design patterns and styles across the platform.</li>
+              <li>Stay up-to-date with industry trends and best practices in front-end development.</li>
+              <li>Troubleshoot and resolve front-end issues as they arise.</li>
+            </ul>
+          </div>
+        </p-scrollPanel>
       </div>
       <div class="col-xl-3">
         <!-- recent -->
-        <div class="recommended-you">
+
+        <div class="recent-col">
           <h6>Recent</h6>
           <app-recent></app-recent>
         </div>
+
       </div>
     </div>
   </div>
 </div>
 
 
-fgdgdg
+
+
+

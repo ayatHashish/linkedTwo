@@ -15,9 +15,11 @@ import { CoreModule } from './core/core.module';
 import { DatePipe } from "@angular/common";
 import { DialogService } from 'primeng/dynamicdialog';
 
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

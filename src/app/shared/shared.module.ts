@@ -54,6 +54,7 @@ const allSharedModule = [
       HeaderComponent,
     FooterComponent,
     NotificationComponent,
+
   ],
   imports: [
     CommonModule,

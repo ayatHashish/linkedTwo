@@ -6,12 +6,11 @@
     left: inherit !important;
   }
 }
-
-/*END  DROPDOWN*/
-
-/*START COMPONENTS*/
-
-/*END COMPONENTS*/
-
-/*IMPORTING RESPONSIVE SCSS FILE*/
+.recent-col{
+  background-color: rgb(243, 244, 246);
+  padding: 2rem 0.4rem;
+  width: 100%;
+  // max-width: 320px;
+  border-radius: 10px;
+}
 @import "./responsive.scss";

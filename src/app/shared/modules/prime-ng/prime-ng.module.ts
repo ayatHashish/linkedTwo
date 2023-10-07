@@ -27,8 +27,7 @@ import { TreeSelectModule } from 'primeng/treeselect';
 import { SliderModule } from 'primeng/slider';
 import { TooltipModule } from 'primeng/tooltip';
 import { RadioButtonModule } from 'primeng/radiobutton';
-
-
+import { ScrollPanelModule } from 'primeng/scrollpanel';
 const primeNgModules = [
   DynamicDialogModule,
   ConfirmDialogModule,
@@ -57,6 +56,8 @@ const primeNgModules = [
   ToastModule,
   TableModule,
   RadioButtonModule
+  ,ScrollPanelModule
+
 ];
 @NgModule({
   declarations: [],

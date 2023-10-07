@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
 
-  apiUrl: "https://api.talentsgates.website/api",
-  publicUrl: "https://api.talentsgates.website/api"
+  apiUrl: "http://localhost:4000/",
+
 };
 
 /*

@@ -11,6 +11,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { RecommendedComponent } from './recommended/recommended.component';
 import { RecentComponent } from './recent/recent.component';
 import { JopComponent } from './jop/jop.component';
+import { JopSearchComponent } from './jop-search/jop-search.component';
+import { JopSelectedComponent } from './jop-selected/jop-selected.component';
 
 
 
@@ -22,6 +24,8 @@ import { JopComponent } from './jop/jop.component';
     RecommendedComponent,
     RecentComponent,
     JopComponent,
+    JopSearchComponent,
+    JopSelectedComponent,
 
   ],
   imports: [
