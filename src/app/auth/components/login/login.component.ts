@@ -17,8 +17,8 @@ import { AuthUserService } from '../../services/auth-user.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  
- 
+
+
 
   constructor(private _auth: AuthUserService, private _router: Router) { }
   isSubmitted = false;
@@ -36,12 +36,8 @@ export class LoginComponent implements OnInit {
     // this.currentLanguage = window?.localStorage?.getItem(keys?.language);
   }
   handlelogin() {
-
-   
     if (this.loginForm.valid) {
-
    console.log(this.loginForm.value)
-    
       this._auth.login(this.loginForm.value).subscribe(
         (res) => {
           console.log(res)

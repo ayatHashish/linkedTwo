@@ -1,0 +1,55 @@
+<div class="upper-section">
+  <h2>Experience</h2>
+  <div>
+    <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editexperience">
+      <i class="fa-regular fa-pen-to-square"></i>
+    </a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati, quaerat tenetur? Unde reiciendis
+      perspiciatis laboriosam soluta voluptas beatae a recusandae, quae velit corporis dignissimos excepturi illum
+      quaerat ullam, nesciunt obcaecati?</p>
+  </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="editexperience" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-content">
+        <div class="modal-body">
+
+          <h1>Job Details</h1>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+  <form [formGroup]="experienceForm" (ngSubmit)="experienceFunction()">
+
+
+
+                <label for="title">Title:</label>
+            <input type="text" id="title" name="title" formControlName="title" required><br><br>
+
+
+
+            <label for="jobType">Job Type:</label>
+            <input type="text" id="jobType" name="jobType"  formControlName="jobType"  required><br><br>
+
+            <label for="since">Start Date:</label>
+            <input type="date" id="since" name="since" formControlName="since" required><br><br>
+
+            <label for="to">End Date:</label>
+            <input type="date" id="to" name="to"  formControlName="to"required><br><br>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" formControlName="location" required><br><br>
+
+            <input type="submit" value="Submit">
+   </form>

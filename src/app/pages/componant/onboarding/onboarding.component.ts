@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
-import { TranslationService } from './../../shared/services/i18n/translation.service';
+import { TranslationService } from 'src/app/shared/services/i18n/translation.service';
+
 @Component({
   selector: 'app-onboarding',
   templateUrl: './onboarding.component.html',

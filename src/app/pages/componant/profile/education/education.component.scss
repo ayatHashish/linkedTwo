@@ -1,0 +1,39 @@
+.wrapper {
+  .upper-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .cards__item {
+    --offset: 0.5em;
+    margin: 1rem 0;
+    color: #000;
+    display: flex;
+    top: max(16vh, 10em);
+    // width: calc(100% - 5 * var(--offset));
+    .circle {
+      width: 75px;
+      height: 75px;
+      background-color: #3498db;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 100px;
+      color: white;
+      font-size: 24px;
+    }
+    .content {
+      padding: 0.5em;
+      h2 {
+        font-size: 1.25em;
+        text-transform: uppercase;
+        margin: 0;
+      }
+      p {
+        font-size: 1.25em;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+

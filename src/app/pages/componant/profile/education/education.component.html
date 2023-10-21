@@ -1,0 +1,70 @@
+
+  <div class="upper-section">
+    <h1>Education</h1>
+    <div>
+      <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#add">
+        <i class="fa-solid fa-plus"></i>
+      </a>
+      <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <i class="fa-regular fa-pen-to-square"></i>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="cards__item">
+        <div class="circle">Icon</div>
+        <div class="content">
+          <h2>califomia college of the arts </h2>
+          <p>2018-2021</p>
+          <p>Degree of the Arts</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-content">
+        <div class="modal-body">
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-content">
+        <div class="modal-body">
+      add
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<form [formGroup]="newEducationForm" (ngSubmit)="handelNewEducation()">
+  <label for="collegeName">College Name:</label>
+  <input type="text" id="collegeName" name="collegeName" formControlName="collegeName" required>
+
+  <label for="since">Start Date:</label>
+  <input type="date" id="since" name="since" formControlName="since" required>
+
+  <label for="to">End Date:</label>
+  <input type="date" id="to" name="to" formControlName="to" required>
+
+  <label for="degree">Degree:</label>
+  <input type="text" id="degree" name="degree" formControlName="degree" required>
+
+  <input type="submit" value="Submit">
+</form>
+
+

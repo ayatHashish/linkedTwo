@@ -24,221 +24,68 @@ export class RegisterComponent implements OnInit {
   showNextContent: boolean = false;
   currentLanguage: any;
   checked!: boolean;
-  countries : any
-  // cv
-  cv: any
-  selectedFile: File | null = null;
-  cvUrl: string | null = null;
-
+  errorMsg = '';
   constructor(
     public checkValidityService: CheckValidityService,
     public translationService: TranslationService,
-    private authUserService: AuthUserService,
+    private _auth: AuthUserService,
     public alertsService: AlertsService,
     public publicService: PublicService,
     private cdr: ChangeDetectorRef,
-    protected router: Router,
+    protected _router: Router,
     public fb: FormBuilder
   ) { }
   ngOnInit() {
     this.currentLanguage = window?.localStorage?.getItem(keys?.language);
   }
-
-  firstRegForm = this.fb?.group(
-    {
-      username: [
-        '',
-        {
-          validators: [
-            Validators.required,
-            Validators.pattern(patterns?.userName),
-            Validators?.minLength(3),
-          ],
-          updateOn: 'blur',
-        },
-      ],
-      email: [
-        '',
-        {
-          validators: [
-            Validators.required,
-            Validators.pattern(patterns?.email),
-            Validators?.minLength(3),
-          ],
-          updateOn: 'blur',
-        },
-      ],
-      password: [
-        '',
-        {
-          validators: [
-            Validators.required,
-            Validators?.minLength(8),
-            Validators?.maxLength(20),
-          ],
-          updateOn: 'blur',
-        },
-      ],
-      // confirmPassword: [
-      //   '',
-      //   {
-      //     validators: [
-      //       Validators.required,
-      //       Validators?.minLength(8),
-      //       Validators?.maxLength(20),
-      //     ],
-      //     updateOn: 'blur',
-      //   },
-      // ],
-    },
-    // {
-    //   validator: ConfirmPasswordValidator?.MatchPassword,
-    // }
-  );
-
-  get firstFormControls(): any {
-    return this.firstRegForm?.controls;
-  }
-
-  submitFirstRegForm(): void {
-    if (this.firstRegForm?.valid) {
-      this.showNextContent = true;
-      this.publicService?.show_loader?.next(true);
-      setTimeout(() => {
-        this.publicService?.show_loader?.next(false);
-      }, 1000);
-    } else {
-      this.publicService?.show_loader?.next(false);
-      this.checkValidityService?.validateAllFormFields(this.firstRegForm);
-    }
-    this.cdr?.detectChanges();
-  }
-
-  // Second Reg Form
-  secondRegForm = this.fb?.group({
-    phone_number: [
-      '',
-      {
-        validators: [
-          Validators.required,
-          Validators?.minLength(10),
-        ],
-        updateOn: 'blur',
-      },
-    ],
-    country_code: [''],
-    country: [
-      '',
-      {
-        validators: [
-          Validators.required,
-          Validators?.minLength(3),
-        ],
-        updateOn: 'blur',
-      },
-    ],
-    city: [
-      '',
-      {
-        validators: [
-          Validators.required,
-          Validators?.minLength(3),
-        ],
-        updateOn: 'blur',
-      },
-    ],
-    image: [
-      '',
-      {
-        validators: [
-          Validators.required,
-        ],
-        updateOn: 'blur',
-      },
-    ],
-    name_cv: [
-      '',
-      {
-        validators: [
-          Validators.required,
-        ],
-        updateOn: 'blur',
-      },
-    ],
+  RegesterForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    fullName: new FormControl('', [Validators.required, Validators?.minLength(3)]),
+    password: new FormControl('', [Validators.required, Validators?.minLength(8), Validators?.maxLength(20),]),
+    confirmPassword: new FormControl('', []),
+    category: new FormControl('',),
   });
 
-  get secondFormControls(): any {
-    return this.secondRegForm?.controls;
+  get firstFormControls(): any {
+    return this.RegesterForm?.controls;
   }
 
-  submitSecondRegForm(): void {
-    if (this.secondRegForm?.valid) {
-      this.publicService?.show_loader?.next(true);
+  // submitFirstRegForm(): void {
+  //   if (this.firstRegForm?.valid) {
+  //     this.showNextContent = true;
+  //     this.publicService?.show_loader?.next(true);
+  //     setTimeout(() => {
+  //       this.publicService?.show_loader?.next(false);
+  //     }, 1000);
+  //   } else {
+  //     this.publicService?.show_loader?.next(false);
+  //     this.checkValidityService?.validateAllFormFields(this.firstRegForm);
+  //   }
+  //   this.cdr?.detectChanges();
+  // }
 
-      let data = {
-        full_name: this.firstRegForm?.value?.username,
-        email: this.firstRegForm?.value?.email,
-        password: this.firstRegForm?.value?.password,
-        phone_number: this.secondRegForm?.value.phone_number,
-        country_code: this.secondRegForm?.value.country,
-        country: this.secondRegForm?.value.country,
-        city: this.secondRegForm?.value.city,
-        image: this.secondRegForm?.value.image,
-        cv: { name_cv: this.secondRegForm?.value.name_cv },
-      };
 
-      this.authUserService?.signup(data)?.subscribe(
-        (res: any) => {
-          if (res?.statusCode == 200) {
-            this.router?.navigate(['/login']);
-            window.localStorage.setItem(keys.token, res?.data?.token);
-            window.localStorage.setItem(
-              keys.userLoginData,
-              JSON.stringify(res?.data?.user)
-            );
-            this.publicService?.show_loader?.next(false);
-          } else {
-            this.publicService?.show_loader?.next(false);
-            res?.error?.message
-              ? this.alertsService?.openSweetAlert('error', res?.error?.message) : '';
-          }
+  submitFirstRegForm() {
+    if (this.RegesterForm.valid) {
+      console.log(this.RegesterForm.value)
+      this._auth.signup(this.RegesterForm.value).subscribe(
+        (res) => {
+          // this._auth.isLoggedIn = true;
+          console.log(res)
         },
-        (err: any) => {
-          err ? this.alertsService?.openSweetAlert('error', err) : '';
-          this.publicService?.show_loader?.next(false);
+        (e) => {
+          this.errorMsg = e.error.error;
+          // this._auth.isLoggedIn = false;
+        },
+        () => {
+          this._router.navigateByUrl('/login');
         }
       );
-      setTimeout(() => {
-        this.router?.navigateByUrl('/dashboard');
-        this.publicService?.show_loader?.next(false);
-        console.log(this.secondRegForm?.value);
-      }, 1000);
-    } else {
-      this.publicService?.show_loader?.next(false);
-      this.checkValidityService?.validateAllFormFields(this.secondRegForm);
     }
-    this.cdr?.detectChanges();
-  }
 
+  }
   ngOnDestroy(): void {
     this.unsubscribe?.forEach((sb) => sb?.unsubscribe());
   }
 
-
-  // getCountries(){
-  //   this.authUserService?.countries()?.subscribe(
-  //     (res: any) => { 
-  //        this.countries = data.countries
-  //       // console.log( "ayat");
-  //     },
-      
-  //   );
-  // }
-  // cv
-  uploadedFile: File | null = null;
-  onUpload(event: any) {
-    if (event.files && event.files.length > 0) {
-      this.uploadedFile = event.files[0];
-    }
-  }
 }

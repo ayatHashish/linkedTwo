@@ -1,0 +1,29 @@
+ <div class="container">
+  <div *ngFor=" let jop of alljop">
+<div class="row">
+  <div class="col-4">
+<div class="card" routerLink="/jop/{{id}}">
+  <div class="card-body" (click)="test()
+    ">
+    {{jop.category}}
+    {{jop.location}}
+    {{jop.jobType}}
+    {{jop.companyName}}
+    {{jop.employees}}
+
+    {{jop.requirements}}
+    {{jop.experience}}
+</div>
+ <p class="card-text"> {{jop.description}}</p>
+  </div>
+
+
+  </div>
+</div>
+
+
+</div>
+
+
+
+  </div>

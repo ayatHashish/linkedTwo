@@ -2,7 +2,8 @@ import { NoInternetComponent } from './core/componenets/no-internet/no-internet.
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { LayoutComponent } from './layout/layout.component';
-import { OnboardingComponent } from './pages/onboarding/onboarding.component';
+import { OnboardingComponent } from './pages/componant/onboarding/onboarding.component';
+
 
 const routes: Routes = [
   // { path: 'layout', loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule) },
